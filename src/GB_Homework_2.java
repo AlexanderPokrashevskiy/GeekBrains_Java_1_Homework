@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.Arrays;
 
 public class GB_Homework_2 {
@@ -7,7 +6,7 @@ public class GB_Homework_2 {
         task01();
         task02();
         task03();
-        task04();
+        printArray(task04());
 
     }
 
@@ -47,18 +46,29 @@ public class GB_Homework_2 {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] < 6) arr[i] *= 2;
         }
-        System.out.print(Arrays.toString(arr));
+        System.out.println(Arrays.toString(arr));
     }
 
 
     // 4. Создать квадратный двумерный целочисленный массив (количество строк и столбцов одинаковое), и с помощью цикла(-ов) заполнить его диагональные элементы единицами;
 
-    public static void task04() {
+    public static int[][] task04() {
 
-        int[][] arr = new int[10][10];
+        int[][] arr = new int[5][5];
         for (int i = 0; i < arr.length; i++) {
+            arr[i][i] = 1;
+            arr[i][arr[i].length - i - 1] = 1;
         }
-
+        return arr;
     }
 
+    static void printArray(int[][] values) {
+        for (int i = 0; i < values.length; i++) {
+            for (int j = 0; j < values[i].length; j++) {
+                System.out.printf("%s ", values[i][j]);
+            }
+            System.out.println();
+
+        }
+    }
 }
